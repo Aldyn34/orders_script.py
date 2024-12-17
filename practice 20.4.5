@@ -2,11 +2,11 @@ import json
 from collections import defaultdict
 from datetime import datetime
 
-# Считываем данные из файла
+
 with open("C:/Users/odina/PycharmProjects/skillfactory/orders_july_2023.json","r") as my_file:
     orders = json.load(my_file)
 
-# Инициализация переменных для хранения ответов на вопросы
+
 max_price = 0
 max_order = ''
 max_quantity = 0
@@ -17,9 +17,8 @@ user_total_price = defaultdict(float)
 total_price = 0
 total_quantity = 0
 
-# Обработка заказов
 for order_num, orders_data in orders.items():
-    # Получаем данные заказа
+
     price = orders_data['price']
     quantity = orders_data['quantity']
     date = orders_data['date']
@@ -60,7 +59,7 @@ max_user_total_price = max(user_total_price, key=user_total_price.get)
 average_order_price = total_price / len(orders) if len(orders) > 0 else 0
 average_price_per_item = total_price / total_quantity if total_quantity > 0 else 0
 
-# Печатаем результаты
+
 print(f'Номер заказа с самой большой стоимостью: {max_order}, стоимость заказа: {max_price}')
 print(f'Номер заказа с самым большим количеством товаров: {max_quantity_order}, количество товаров: {max_quantity}')
 print(f'День с самым большим количеством заказов: {max_orders_day}, количество заказов: {order_count_per_day[max_orders_day]}')
